@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>人口</title>
+</head>
+
+<body>
+    <!--Div that will hold the pie chart-->
+
+    <div id="barchart_material" style="width: 900px; height: 500px;"></div>
+
+    <!--Load the AJAX API-->
+    <script src="https://www.google.com/jsapi"></script>
+    <script>
+        // Load the Visualization API and the piechart package.
+        google.load('visualization', '1.1', {
+            'packages': ['bar'],
+            'language': 'ja'
+        });
+
+        // Set a callback to run when the Google Visualization API is loaded.
+        google.setOnLoadCallback(drawChart);
+
+        // Callback that creates and populates a data table,
+        // instantiates the pie chart, passes in the data and
+        // draws it.
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+          ['市町村', '人口', '65歳以上', '0~15歳人口'],
+          ['名古屋市', 2296, 545, 302],
+          ['一宮市', 380, 97, 57],
+          ['高山市', 90, 28, 13],
+          ['飛騨市', 25, 9, 3]
+        ]);
+
+            var options = {
+                chart: {
+                    title: '少子高齢化',
+                    subtitle: '2015年度調査',
+                },
+                bars: 'horizontal', // Required for Material Bar Charts.
+                // ここを 'horizontal' から 'vertical' に変更してみよう。
+                // isStacked: true
+            };
+
+            // 新しいバージョンなので、google.visualaization.chartsから変更
+            var chart = new google.charts.Bar(document.getElementById('barchart_material'));
+
+            // 新しいバージョンなので、convertOptionsを追加
+            chart.draw(data, google.charts.Bar.convertOptions(options));
+        }
+    </script>
+</body>
+
+</html>
