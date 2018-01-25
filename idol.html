@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>アイドル占い</title>
+    <style>
+        body {
+            background: #ffffff;
+            text-align: center;
+            font-size: 16px;
+            color: #8474ff;
+            font-family: Arial, sans-serif;
+        }
+
+        #result {
+            margin: 30px auto;
+            width: 300px;
+            height: 180px;
+            border-radius: 5%;
+            line-height: 180px;
+            font-size: 20px;
+            font-weight: bold;
+            background: rgba(242, 203, 236, 0.74);
+        }
+
+        #btn {
+            margin: 0 auto;
+            width: 200px;
+            padding: 5px;
+            border-radius: 5px;
+            background: rgba(242, 203, 236, 0.74);
+            cursor: pointer;
+        }
+
+        #btn:hover {
+            opacity: 0.8;
+        }
+
+        #btn.pushed {
+            margin-top: 32px;
+            box-shadow: 0 2px 0 #0088cc;
+        }
+
+    </style>
+</head>
+
+<body backdround="http://4.bp.blogspot.com/-IoPl7OK1A-E/VLeqD5dD1yI/AAAAAAAAqcE/bBsvufsL40E/s600/line_whiteday_heart1.png">
+    <div id="result">おすすめアイドルは…</div>
+    <div id="btn">占う</div>
+    <script>
+        (function() {
+            "use strict";
+            document.getElementById('btn').addEventListener('click', function() {
+                // result = 0..3
+                var results = ['小田さくら', '譜久村聖', '飯窪春菜', '生田衣梨奈', '佐藤優樹', '石田あゆみ',
+                    '羽賀あかね', '野中美希', '牧野真莉愛', '尾形はるな', '森戸ちさき', '横山れいな', '小田さくら'
+                ];
+                var result = Math.floor(Math.random() * results.length);
+                document.getElementById('result').innerHTML = results[result];
+            });
+            document.getElementById('btn').addEventListener('mousedown', function() {
+                this.className = 'pushed';
+            });
+            document.getElementById('btn').addEventListener('mouseup', function() {
+                this.className = '';
+            });
+        })();
+
+    </script>
+
+    <div>
+        <p　>
+            あなたのおすすめはどんな子？詳しくは↓↓↓
+            </p>
+
+            <a href="http://www.helloproject.com/morningmusume/"> 
+            <img src="https://rr.img.naver.jp/mig?src=http%3A%2F%2Fimgcc.naver.jp%2Fkaze%2Fmission%2FUSER%2F20171201%2F18%2F1717728%2F33%2F480x639x158f3973abfc16f8d32aaa11.jpg%2F300%2F600&twidth=300&theight=0&qlt=80&res_format=jpg&op=r" alt="">
+            </a>
+
+            
+               
+
+            
+
+
+
+    </div>
+
+</body>
+
+</html>
